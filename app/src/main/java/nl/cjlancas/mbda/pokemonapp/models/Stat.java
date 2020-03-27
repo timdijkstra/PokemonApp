@@ -1,4 +1,4 @@
-package nl.jvhaastert.mbda.pokemonapp.models;
+package nl.cjlancas.mbda.pokemonapp.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;

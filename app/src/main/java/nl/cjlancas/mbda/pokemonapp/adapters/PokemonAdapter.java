@@ -1,4 +1,4 @@
-package nl.jvhaastert.mbda.pokemonapp.adapters;
+package nl.cjlancas.mbda.pokemonapp.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,11 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.Collections;
 import java.util.List;
 
-import nl.jvhaastert.mbda.pokemonapp.R;
-import nl.jvhaastert.mbda.pokemonapp.activities.PokemonActivity;
-import nl.jvhaastert.mbda.pokemonapp.constants.ExtraNameConstants;
-import nl.jvhaastert.mbda.pokemonapp.models.Pokemon;
-import nl.jvhaastert.mbda.pokemonapp.viewholders.PokemonViewHolder;
+import nl.cjlancas.mbda.pokemonapp.R;
+import nl.cjlancas.mbda.pokemonapp.activities.PokemonActivity;
+import nl.cjlancas.mbda.pokemonapp.constants.ExtraNameConstants;
+import nl.cjlancas.mbda.pokemonapp.models.Pokemon;
+import nl.cjlancas.mbda.pokemonapp.viewholders.PokemonViewHolder;
 
 public class PokemonAdapter extends RecyclerView.Adapter<PokemonViewHolder> {
 

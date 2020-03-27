@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="nl.jvhaastert.mbda.pokemonapp">
+    package="nl.cjlancas.mbda.pokemonapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
-        <activity android:name=".activities.MainActivity">
+        <activity android:name="nl.cjlancas.mbda.pokemonapp.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -24,9 +24,9 @@
         </activity>
 
         <activity
-            android:name=".activities.PokemonActivity"
+            android:name="nl.cjlancas.mbda.pokemonapp.activities.PokemonActivity"
             android:label="@string/pokemon_info"
-            android:parentActivityName=".activities.MainActivity" />
+            android:parentActivityName="nl.cjlancas.mbda.pokemonapp.activities.MainActivity" />
     </application>
 
 </manifest>

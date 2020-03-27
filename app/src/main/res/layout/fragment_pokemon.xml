@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <nl.jvhaastert.mbda.pokemonapp.views.CheckableImageButton
+    <nl.cjlancas.mbda.pokemonapp.views.CheckableImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/pokemon_favorite_checkable_image_button"

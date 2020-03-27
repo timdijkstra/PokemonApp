@@ -1,4 +1,4 @@
-package nl.jvhaastert.mbda.pokemonapp.activities;
+package nl.cjlancas.mbda.pokemonapp.activities;
 
 import android.net.http.HttpResponseCache;
 import android.os.Bundle;
@@ -8,13 +8,12 @@ import androidx.appcompat.widget.Toolbar;
 import java.io.File;
 import java.io.IOException;
 import android.view.MenuItem;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+
 import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import nl.jvhaastert.mbda.pokemonapp.R;
-import nl.jvhaastert.mbda.pokemonapp.fragments.FavoritesFragment;
-import nl.jvhaastert.mbda.pokemonapp.fragments.ListFragment;
+import nl.cjlancas.mbda.pokemonapp.R;
+import nl.cjlancas.mbda.pokemonapp.fragments.FavoritesFragment;
+import nl.cjlancas.mbda.pokemonapp.fragments.ListFragment;
 
 public class MainActivity extends AppCompatActivity {
 

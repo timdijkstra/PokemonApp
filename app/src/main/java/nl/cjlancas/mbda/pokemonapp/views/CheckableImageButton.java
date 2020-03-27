@@ -1,10 +1,10 @@
-package nl.jvhaastert.mbda.pokemonapp.views;
+package nl.cjlancas.mbda.pokemonapp.views;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.Checkable;
 
-import nl.jvhaastert.mbda.pokemonapp.R;
+import nl.cjlancas.mbda.pokemonapp.R;
 
 public class CheckableImageButton extends androidx.appcompat.widget.AppCompatImageButton implements Checkable {
 

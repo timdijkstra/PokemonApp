@@ -1,4 +1,4 @@
-package nl.jvhaastert.mbda.pokemonapp.constants;
+package nl.cjlancas.mbda.pokemonapp.constants;
 
 public class ExtraNameConstants {
 

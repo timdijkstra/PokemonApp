@@ -37,7 +37,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
-    <nl.jvhaastert.mbda.pokemonapp.views.CheckableImageButton
+    <nl.cjlancas.mbda.pokemonapp.views.CheckableImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/pokemon_favorite_checkable_image_button"

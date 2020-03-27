@@ -1,4 +1,4 @@
-package nl.jvhaastert.mbda.pokemonapp.activities;
+package nl.cjlancas.mbda.pokemonapp.activities;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -19,13 +19,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import nl.jvhaastert.mbda.pokemonapp.R;
-import nl.jvhaastert.mbda.pokemonapp.constants.ExtraNameConstants;
-import nl.jvhaastert.mbda.pokemonapp.fragments.PokemonFragment;
-import nl.jvhaastert.mbda.pokemonapp.helpers.VolleyHelper;
-import nl.jvhaastert.mbda.pokemonapp.models.Pokemon;
-import nl.jvhaastert.mbda.pokemonapp.models.Stat;
-import nl.jvhaastert.mbda.pokemonapp.models.Type;
+import nl.cjlancas.mbda.pokemonapp.R;
+import nl.cjlancas.mbda.pokemonapp.constants.ExtraNameConstants;
+import nl.cjlancas.mbda.pokemonapp.fragments.PokemonFragment;
+import nl.cjlancas.mbda.pokemonapp.helpers.VolleyHelper;
+import nl.cjlancas.mbda.pokemonapp.models.Pokemon;
+import nl.cjlancas.mbda.pokemonapp.models.Stat;
+import nl.cjlancas.mbda.pokemonapp.models.Type;
 
 public class PokemonActivity extends AppCompatActivity {
 

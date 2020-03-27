@@ -1,4 +1,4 @@
-package nl.jvhaastert.mbda.pokemonapp.fragments;
+package nl.cjlancas.mbda.pokemonapp.fragments;
 
 import android.Manifest;
 import android.content.Intent;
@@ -29,14 +29,14 @@ import java.util.Comparator;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
-import nl.jvhaastert.mbda.pokemonapp.R;
-import nl.jvhaastert.mbda.pokemonapp.helpers.FavoritesHelper;
-import nl.jvhaastert.mbda.pokemonapp.helpers.ImageHelper;
-import nl.jvhaastert.mbda.pokemonapp.helpers.StringHelper;
-import nl.jvhaastert.mbda.pokemonapp.models.Pokemon;
-import nl.jvhaastert.mbda.pokemonapp.models.Stat;
-import nl.jvhaastert.mbda.pokemonapp.models.Type;
-import nl.jvhaastert.mbda.pokemonapp.views.CheckableImageButton;
+import nl.cjlancas.mbda.pokemonapp.R;
+import nl.cjlancas.mbda.pokemonapp.helpers.FavoritesHelper;
+import nl.cjlancas.mbda.pokemonapp.helpers.ImageHelper;
+import nl.cjlancas.mbda.pokemonapp.helpers.StringHelper;
+import nl.cjlancas.mbda.pokemonapp.models.Pokemon;
+import nl.cjlancas.mbda.pokemonapp.models.Stat;
+import nl.cjlancas.mbda.pokemonapp.models.Type;
+import nl.cjlancas.mbda.pokemonapp.views.CheckableImageButton;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -142,7 +142,7 @@ public class PokemonFragment extends Fragment {
                 photoPickerIntent.setType("image/*");
                 startActivityForResult(photoPickerIntent, RESULT_LOAD_IMAGE);
             });
-            
+
             String statsString = pokemon.getStats()
                     .stream()
                     .map(Stat::getBaseStat)

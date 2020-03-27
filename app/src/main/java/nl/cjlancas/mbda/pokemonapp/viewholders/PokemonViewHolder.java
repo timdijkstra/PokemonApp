@@ -1,4 +1,4 @@
-package nl.jvhaastert.mbda.pokemonapp.viewholders;
+package nl.cjlancas.mbda.pokemonapp.viewholders;
 
 import android.annotation.SuppressLint;
 import android.view.View;
@@ -7,8 +7,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import nl.jvhaastert.mbda.pokemonapp.R;
-import nl.jvhaastert.mbda.pokemonapp.helpers.StringHelper;
+import nl.cjlancas.mbda.pokemonapp.R;
+import nl.cjlancas.mbda.pokemonapp.helpers.StringHelper;
 
 public class PokemonViewHolder extends RecyclerView.ViewHolder {
 

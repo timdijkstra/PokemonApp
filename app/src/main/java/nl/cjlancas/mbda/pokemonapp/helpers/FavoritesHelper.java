@@ -1,4 +1,4 @@
-package nl.jvhaastert.mbda.pokemonapp.helpers;
+package nl.cjlancas.mbda.pokemonapp.helpers;
 
 import android.content.Context;
 import android.util.Log;

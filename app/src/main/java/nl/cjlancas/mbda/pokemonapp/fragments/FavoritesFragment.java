@@ -1,4 +1,4 @@
-package nl.jvhaastert.mbda.pokemonapp.fragments;
+package nl.cjlancas.mbda.pokemonapp.fragments;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -18,11 +18,11 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import nl.jvhaastert.mbda.pokemonapp.R;
-import nl.jvhaastert.mbda.pokemonapp.adapters.PokemonAdapter;
-import nl.jvhaastert.mbda.pokemonapp.helpers.FavoritesHelper;
-import nl.jvhaastert.mbda.pokemonapp.helpers.VolleyHelper;
-import nl.jvhaastert.mbda.pokemonapp.models.Pokemon;
+import nl.cjlancas.mbda.pokemonapp.R;
+import nl.cjlancas.mbda.pokemonapp.adapters.PokemonAdapter;
+import nl.cjlancas.mbda.pokemonapp.helpers.FavoritesHelper;
+import nl.cjlancas.mbda.pokemonapp.helpers.VolleyHelper;
+import nl.cjlancas.mbda.pokemonapp.models.Pokemon;
 
 public class FavoritesFragment extends Fragment {
 

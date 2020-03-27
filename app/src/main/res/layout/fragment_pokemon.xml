@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <nl.jvhaastert.mbda.pokemonapp.views.CheckableImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pokemon_favorite_checkable_image_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/pokemon_types_text_view"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/button_star" />
+
+    <TextView
+        android:id="@+id/pokemon_name_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toStartOf="@+id/pokemon_id_text_view"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/pokemon_favorite_checkable_image_button"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Bulbasaur" />
+
+    <TextView
+        android:id="@+id/pokemon_id_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pokemon_name_text_view"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="#123" />
+
+    <TextView
+        android:id="@+id/pokemon_types_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toStartOf="@+id/pokemon_name_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/pokemon_name_text_view"
+        tools:text="Grass, Poison" />
+
+    <Button
+        android:id="@+id/pokemon_save_image_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/save_image"
+        app:layout_constraintBottom_toTopOf="@+id/pokemon_share_stats_button"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/pokemon_change_image_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/change_pokemon_image"
+        app:layout_constraintBottom_toTopOf="@+id/pokemon_stats_title_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.004"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/pokemon_image_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="@string/pokemon_image"
+        app:layout_constraintBottom_toTopOf="@+id/pokemon_save_image_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pokemon_types_text_view"
+        tools:src="@tools:sample/avatars[0]" />
+
+    <TextView
+        android:id="@+id/pokemon_stats_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/statistics"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toTopOf="@+id/pokemon_stats_text_view"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/pokemon_share_stats_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/share"
+        app:layout_constraintBaseline_toBaselineOf="@+id/pokemon_stats_title_text_view"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/pokemon_stats_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Grass, Poison" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

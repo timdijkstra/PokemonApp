@@ -108,6 +108,7 @@ public class PokemonFragment extends Fragment {
             String id = "#" + pokemon.getId();
             idTextView.setText(id);
 
+            // formatting (types next or under each other)
             String typesString = pokemon.getTypes()
                     .stream()
                     .sorted(Comparator.comparingInt(Type::getSlot))
@@ -120,6 +121,13 @@ public class PokemonFragment extends Fragment {
                     .execute(pokemon.getImageUrl())
                     .get();
             frontImageView.setImageBitmap(bitmap);
+
+            // quickfix: Showing saveImage
+            if (bitmap != null) {
+                saveImageButton.setEnabled(true);
+            } else {
+                saveImageButton.setEnabled(false);
+            }
 
             saveImageButton.setOnClickListener(v -> {
                 if (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
@@ -134,8 +142,7 @@ public class PokemonFragment extends Fragment {
                 photoPickerIntent.setType("image/*");
                 startActivityForResult(photoPickerIntent, RESULT_LOAD_IMAGE);
             });
-
-
+            
             String statsString = pokemon.getStats()
                     .stream()
                     .map(Stat::getBaseStat)

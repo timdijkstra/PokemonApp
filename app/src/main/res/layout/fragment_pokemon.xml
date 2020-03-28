@@ -51,7 +51,8 @@
         android:id="@+id/pokemon_save_image_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="196dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/save_image"
         app:layout_constraintBottom_toTopOf="@+id/pokemon_share_stats_button"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -60,11 +61,11 @@
         android:id="@+id/pokemon_change_image_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="30dp"
         android:text="@string/change_pokemon_image"
         app:layout_constraintBottom_toTopOf="@+id/pokemon_stats_title_text_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.004"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView

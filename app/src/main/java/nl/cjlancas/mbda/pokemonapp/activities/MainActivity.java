@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             long httpCacheSize = 10 * 1024 * 1024; // 10 MiB
             HttpResponseCache.install(httpCacheDir, httpCacheSize);
         } catch (IOException e) {
-            Log.i("cache", "Something went wrong while installing the cache:" + e);
+            Log.i("error", "" + e);
         }
 
         super.onCreate(savedInstanceState);
@@ -54,17 +54,16 @@ public class MainActivity extends AppCompatActivity {
             cache.flush();
         }
     }
+
     private boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.list_menu_item:
                 replaceFragment(new ListFragment());
-                setTitle(R.string.app_name);
-
+                setTitle(R.string.list);
                 return true;
             case R.id.favorites_menu_item:
                 replaceFragment(new FavoritesFragment());
                 setTitle(R.string.favorites);
-
                 return true;
             default:
                 return false;

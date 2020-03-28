@@ -26,7 +26,7 @@
         android:id="@+id/main_navigation_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="?android:attr/colorPrimary"
+        android:background="@android:color/holo_red_light"
         app:itemIconTint="@android:color/white"
         app:itemTextColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"

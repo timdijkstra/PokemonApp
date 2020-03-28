@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">Pokemon App</string>
-    <string name="pokemon_info">Pokemon Info</string>
+    <string name="app_name">PokemonApp</string>
+    <string name="pokemon_info">Pokemon</string>
     <string name="statistics">Statistieken</string>
     <string name="share">Delen</string>
     <string name="save_image">Afbeelding opslaan</string>
     <string name="pokemon_image">Pokemon afbeelding</string>
-    <string name="list">List</string>
-    <string name="favorites">Favorites</string>
+    <string name="list">Lijst</string>
+    <string name="favorites">Favorieten</string>
     <string name="change_pokemon_image">Afbeelding aanpassen</string>
 </resources>

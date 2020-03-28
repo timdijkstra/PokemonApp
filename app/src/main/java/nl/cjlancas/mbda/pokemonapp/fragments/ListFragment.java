@@ -39,7 +39,7 @@ public class ListFragment extends Fragment {
 
     public ListFragment() {
         super(R.layout.fragment_list);
-
+        //TODO: wat doet dit?
         VolleyLog.DEBUG = true;
     }
 

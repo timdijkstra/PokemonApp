@@ -65,39 +65,41 @@ public class ImageHelper {
             }
         }
 
-        //For all older versions we use the old method as the above approach
-        //Does not work on Android 8.
-        else {
-            FileOutputStream outStream;
-            File sdCard = Environment.getExternalStorageDirectory();
-            dir = new File(sdCard.getAbsolutePath() + DIRECTORY);
-            dir.mkdirs();
+        //TODO: remove code below?
 
-            File outFile = new File(dir, fileName);
-            try {
-                outStream = new FileOutputStream(outFile);
-                saved = bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outStream);
-                outStream.flush();
-                outStream.close();
-
-                if(saved) {
-                    Toast.makeText(activity, "Afbeelding opgeslagen!",
-                            Toast.LENGTH_SHORT).show();
-
-                    //Refresh gallery after saving
-                    Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-                    intent.setData(Uri.fromFile(outFile));
-                    activity.sendBroadcast(intent);
-                }else {
-                    Toast.makeText(activity, "Er ging iets mis bij het opslaan. Probeer het opnieuw!",
-                            Toast.LENGTH_SHORT).show();
-                }
-
-            } catch (FileNotFoundException e) {
-                Log.e("PokemonActivity", e.getMessage(), e);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+//        //For all older versions we use the old method as the above approach
+//        //Does not work on Android 8.
+//        else {
+//            FileOutputStream outStream;
+//            File sdCard = Environment.getExternalStorageDirectory();
+//            dir = new File(sdCard.getAbsolutePath() + DIRECTORY);
+//            dir.mkdirs();
+//
+//            File outFile = new File(dir, fileName);
+//            try {
+//                outStream = new FileOutputStream(outFile);
+//                saved = bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outStream);
+//                outStream.flush();
+//                outStream.close();
+//
+//                if(saved) {
+//                    Toast.makeText(activity, "Afbeelding opgeslagen!",
+//                            Toast.LENGTH_SHORT).show();
+//
+//                    //Refresh gallery after saving
+//                    Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+//                    intent.setData(Uri.fromFile(outFile));
+//                    activity.sendBroadcast(intent);
+//                }else {
+//                    Toast.makeText(activity, "Er ging iets mis bij het opslaan. Probeer het opnieuw!",
+//                            Toast.LENGTH_SHORT).show();
+//                }
+//
+//            } catch (FileNotFoundException e) {
+//                Log.e("PokemonActivity", e.getMessage(), e);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
 }

@@ -19,20 +19,23 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //cache all files on creation up to 10 MiB
         try {
             File httpCacheDir = new File(getCacheDir(), "http");
-            long httpCacheSize = 10 * 1024 * 1024; // 10 MiB
+            long httpCacheSize = 10 * 1024 * 1024;
             HttpResponseCache.install(httpCacheDir, httpCacheSize);
         } catch (IOException e) {
-            Log.i("cache", "Something went wrong while installing the cache:" + e);
+            Log.i("cache", "Failed to create the cache:" + e);
         }
 
+        //TODO: waarom wordt de super aangeroepen? en de savedInstance is informatie van een vorige sessie, right?
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         Toolbar actionBar = findViewById(R.id.action_bar);
         setSupportActionBar(actionBar);
 
+        //TODO: waarom wordt de bottomnav hier geinitialiseerd?
         BottomNavigationView bottomNavigationView = findViewById(R.id.main_navigation_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(this::onNavigationItemSelected);
         bottomNavigationView.setOnNavigationItemReselectedListener(this::onNavigationItemReselected);
@@ -47,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
+    //TODO: wanneer wordt de cache werkelijk leeggemaakt?
     protected void onStop() {
         super.onStop();
         HttpResponseCache cache = HttpResponseCache.getInstalled();
@@ -54,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
             cache.flush();
         }
     }
+
+    //navigeren met tabs.
     private boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.list_menu_item:

@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class FavoritesHelper {
-
+    //TODO: Remove?
     private Set<Integer> favoriteIds;
 
     private static FavoritesHelper instance;

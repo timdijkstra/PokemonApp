@@ -14,7 +14,6 @@ import java.util.List;
 
 import nl.cjlancas.mbda.pokemonapp.R;
 import nl.cjlancas.mbda.pokemonapp.activities.PokemonActivity;
-import nl.cjlancas.mbda.pokemonapp.constants.ExtraNameConstants;
 import nl.cjlancas.mbda.pokemonapp.models.Pokemon;
 import nl.cjlancas.mbda.pokemonapp.viewholders.PokemonViewHolder;
 
@@ -44,7 +43,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonViewHolder> {
             Context context = v.getContext();
 
             Intent intent = new Intent(context, PokemonActivity.class);
-            intent.putExtra(ExtraNameConstants.URL, pokemon.getUrl());
+            intent.putExtra("url", pokemon.getUrl());
             context.startActivity(intent);
         });
     }

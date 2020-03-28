@@ -30,21 +30,17 @@ import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
 import nl.cjlancas.mbda.pokemonapp.R;
-import nl.cjlancas.mbda.pokemonapp.helpers.FavoritesHelper;
 import nl.cjlancas.mbda.pokemonapp.helpers.ImageHelper;
 import nl.cjlancas.mbda.pokemonapp.helpers.StringHelper;
 import nl.cjlancas.mbda.pokemonapp.models.Pokemon;
 import nl.cjlancas.mbda.pokemonapp.models.Stat;
 import nl.cjlancas.mbda.pokemonapp.models.Type;
-import nl.cjlancas.mbda.pokemonapp.views.CheckableImageButton;
 
 import static android.app.Activity.RESULT_OK;
 
 public class PokemonFragment extends Fragment {
 
     private Pokemon pokemon;
-
-    private CheckableImageButton favoriteCheckableImageButton;
     private TextView nameTextView;
     private TextView idTextView;
     private TextView typesTextView;
@@ -56,7 +52,6 @@ public class PokemonFragment extends Fragment {
     private FragmentActivity activity;
     private ImageHelper imageHelper;
     private static final int RESULT_LOAD_IMAGE = 1;
-    private FavoritesHelper favoritesHelper;
     private static final int STORAGE_PERMISSION_CODE = 1;
 
     public PokemonFragment() {
@@ -72,9 +67,7 @@ public class PokemonFragment extends Fragment {
 
         activity = getActivity();
         imageHelper = new ImageHelper();
-        favoritesHelper = FavoritesHelper.getInstance(activity);
 
-        favoriteCheckableImageButton = view.findViewById(R.id.pokemon_favorite_checkable_image_button);
         nameTextView = view.findViewById(R.id.pokemon_name_text_view);
         idTextView = view.findViewById(R.id.pokemon_id_text_view);
         typesTextView = view.findViewById(R.id.pokemon_types_text_view);
@@ -96,15 +89,13 @@ public class PokemonFragment extends Fragment {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == STORAGE_PERMISSION_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(activity, "Toegang gegeven", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "Access granted", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
     private void populateViews() {
         try {
-            favoriteCheckableImageButton.setChecked(favoritesHelper.isFavorite(pokemon.getId()));
-            favoriteCheckableImageButton.setOnCheckedChangedListener(this::onFavoriteCheckedChanged);
 
             String name = StringHelper.capitalize(pokemon.getName());
             nameTextView.setText(name);
@@ -113,6 +104,7 @@ public class PokemonFragment extends Fragment {
             idTextView.setText(id);
 
             // formatting (types next or under each other)
+            //could not capitalize first letter without Stringhelper.
             String typesString = pokemon.getTypes()
                     .stream()
                     .sorted(Comparator.comparingInt(Type::getSlot))
@@ -172,14 +164,14 @@ public class PokemonFragment extends Fragment {
        //after declining first permission request, display explanation.
         if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
             new AlertDialog.Builder(activity)
-                    .setTitle("Toegang nodgi")
-                    .setMessage("PokemonApp heeft toegang nodig tot de opslag om de afbeelding op te kunnen slaan")
-                    .setPositiveButton("Geef toegang", (dialog, which) ->
+                    .setTitle("Access needed")
+                    .setMessage("PokemonApp requires permission to store image.")
+                    .setPositiveButton("Grant permission", (dialog, which) ->
                             ActivityCompat.requestPermissions(
                                     activity,
                                     new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                                     STORAGE_PERMISSION_CODE))
-                    .setNegativeButton("Annuleren", (dialog, which) -> dialog.dismiss())
+                    .setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss())
                     .create()
                     .show();
         } else {
@@ -190,9 +182,6 @@ public class PokemonFragment extends Fragment {
         }
     }
 
-    private void onFavoriteCheckedChanged(CheckableImageButton view, boolean checked) {
-        favoritesHelper.setFavorite(activity, pokemon.getId(), checked);
-    }
 
     @Override
     public void onActivityResult(int reqCode, int resultCode, Intent data) {
@@ -204,10 +193,10 @@ public class PokemonFragment extends Fragment {
                 frontImageView.setImageBitmap(selectedImage);
             } catch (IOException e) {
                 Log.e("PokemonFragment", e.getMessage(), e);
-                Toast.makeText(activity, "Afbeelding kan niet worden weergeven", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "Image could not be displayed.", Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(activity, "Selecteer een afbeelding",Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Select an image.",Toast.LENGTH_SHORT).show();
         }
     }
 

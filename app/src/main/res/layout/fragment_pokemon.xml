@@ -6,25 +6,14 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <nl.cjlancas.mbda.pokemonapp.views.CheckableImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/pokemon_favorite_checkable_image_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/pokemon_types_text_view"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/button_star" />
-
     <TextView
         android:id="@+id/pokemon_name_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="84dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toStartOf="@+id/pokemon_id_text_view"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toEndOf="@+id/pokemon_favorite_checkable_image_button"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Bulbasaur" />
 
@@ -33,9 +22,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/pokemon_name_text_view"
-        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="325dp"
+        tools:layout_editor_absoluteY="1dp"
         tools:text="#123" />
 
     <TextView

@@ -52,10 +52,10 @@ public class ImageHelper {
                 activity.sendBroadcast(intent);
 
                 if(saved) {
-                    Toast.makeText(activity, "Afbeelding opgeslagen",
+                    Toast.makeText(activity, "Image saved.",
                             Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(activity, "Er ging iets mis",
+                    Toast.makeText(activity, "Something went wrong.",
                             Toast.LENGTH_SHORT).show();
                 }
 

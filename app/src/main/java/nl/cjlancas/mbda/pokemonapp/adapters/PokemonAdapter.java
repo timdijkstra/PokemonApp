@@ -65,7 +65,6 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonViewHolder> {
 
     public void appendData(List<Pokemon> pokemons) {
         int oldItemCount = this.pokemons.size();
-
         this.pokemons.addAll(pokemons);
         notifyItemRangeInserted(oldItemCount, pokemons.size());
     }

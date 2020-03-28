@@ -66,7 +66,9 @@ public class PokemonFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Bundle arguments = getArguments();
-        if (arguments == null) return;
+        if (arguments == null){
+            return;
+        }
 
         activity = getActivity();
         imageHelper = new ImageHelper();
@@ -83,7 +85,9 @@ public class PokemonFragment extends Fragment {
         changeImageButton = view.findViewById(R.id.pokemon_change_image_button);
 
         pokemon = arguments.getParcelable("pokemon");
-        if (pokemon == null) return;
+        if (pokemon == null){
+            return;
+        }
 
         populateViews();
     }
@@ -92,7 +96,7 @@ public class PokemonFragment extends Fragment {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == STORAGE_PERMISSION_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(activity, "Toegang toegekend", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "Toegang gegeven", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -168,9 +172,9 @@ public class PokemonFragment extends Fragment {
        //after declining first permission request, display explanation.
         if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
             new AlertDialog.Builder(activity)
-                    .setTitle("Waarom vragen wij toegang?")
-                    .setMessage("Wij hebben toegang tot uw telefoonopslag nodig om zodoende de afbeelding op te kunnen slaan")
-                    .setPositiveButton("Oke!", (dialog, which) ->
+                    .setTitle("Toegang nodgi")
+                    .setMessage("PokemonApp heeft toegang nodig tot de opslag om de afbeelding op te kunnen slaan")
+                    .setPositiveButton("Geef toegang", (dialog, which) ->
                             ActivityCompat.requestPermissions(
                                     activity,
                                     new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
@@ -200,10 +204,10 @@ public class PokemonFragment extends Fragment {
                 frontImageView.setImageBitmap(selectedImage);
             } catch (IOException e) {
                 Log.e("PokemonFragment", e.getMessage(), e);
-                Toast.makeText(activity, "Something went wrong with displaying an image", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "Afbeelding kan niet worden weergeven", Toast.LENGTH_SHORT).show();
             }
-        }else {
-            Toast.makeText(activity, "No image was selected, please try again.",Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(activity, "Selecteer een afbeelding",Toast.LENGTH_SHORT).show();
         }
     }
 

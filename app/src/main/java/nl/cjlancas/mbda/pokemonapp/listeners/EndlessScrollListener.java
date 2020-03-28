@@ -17,12 +17,13 @@ public abstract class EndlessScrollListener extends RecyclerView.OnScrollListene
         LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
         RecyclerView.Adapter adapter = recyclerView.getAdapter();
 
-        if (loading || layoutManager == null || adapter == null) return;
+        if (loading || layoutManager == null || adapter == null){
+            return;
+        }
 
         if (layoutManager.findLastCompletelyVisibleItemPosition() >= recyclerView.getAdapter().getItemCount() - MARGIN) {
-            loading = true;
-
             Handler handler = new Handler();
+            loading = true;
             handler.post(() -> {
                 loadMore();
                 loading = false;

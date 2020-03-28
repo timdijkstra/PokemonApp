@@ -31,8 +31,7 @@ public class ImageHelper {
         String fileName = String.format("%d.jpg", System.currentTimeMillis());
         boolean saved;
         File dir;
-        //The getExternalStorageDirectory is deprecated in android Q
-        //So we use the MediaStore approach here.
+        //The getExternalStorageDirectory is deprecated in android Q, So we use the MediaStore approach here.
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             ContentResolver resolver = activity.getContentResolver();
             ContentValues contentValues = new ContentValues();
@@ -53,10 +52,10 @@ public class ImageHelper {
                 activity.sendBroadcast(intent);
 
                 if(saved) {
-                    Toast.makeText(activity, "Afbeelding opgeslagen!",
+                    Toast.makeText(activity, "Afbeelding opgeslagen",
                             Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(activity, "Er ging iets mis bij het opslaan. Probeer het opnieuw!",
+                } else {
+                    Toast.makeText(activity, "Er ging iets mis",
                             Toast.LENGTH_SHORT).show();
                 }
 

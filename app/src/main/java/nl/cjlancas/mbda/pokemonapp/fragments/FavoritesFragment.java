@@ -77,7 +77,6 @@ public class FavoritesFragment extends Fragment {
         try {
             String url = String.format(GET_POKEMON_URL_FORMAT, response.getInt("id"));
             String name = response.getString("name");
-
             return new Pokemon(url, name);
         } catch (JSONException e) {
             Log.e("FavoritesFragment", e.getMessage(), e);

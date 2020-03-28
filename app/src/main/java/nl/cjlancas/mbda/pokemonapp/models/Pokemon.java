@@ -15,11 +15,13 @@ public class Pokemon implements Parcelable {
     private String imageUrl;
     private List<Stat> stats;
 
+    // Constructor for List and Favorites
     public Pokemon(String url, String name) {
         this.url = url;
         this.name = name;
     }
 
+    // Constructor for Details
     public Pokemon(String url, String name, int id, List<Type> types, String imageUrl, List<Stat> stats) {
         this.url = url;
         this.name = name;

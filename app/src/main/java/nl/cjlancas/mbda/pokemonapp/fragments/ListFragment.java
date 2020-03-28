@@ -52,8 +52,9 @@ public class ListFragment extends Fragment {
         recyclerView.addOnScrollListener(new EndlessScrollListener() {
             @Override
             public void loadMore() {
-                if (nextUrl == null) return;
-
+                if (nextUrl == null){
+                    return;
+                }
                 executeAllPokemonsRequest(view.getContext(), nextUrl, ListFragment.this::appendData);
             }
         });
@@ -63,7 +64,6 @@ public class ListFragment extends Fragment {
 
     private void createAdapter(JSONObject response) {
         List<Pokemon> pokemons = convertResponseToPokemonList(response);
-
         adapter = new PokemonAdapter(pokemons);
         recyclerView.setAdapter(adapter);
     }
@@ -85,7 +85,6 @@ public class ListFragment extends Fragment {
 
     private List<Pokemon> convertResponseToPokemonList(JSONObject response) {
         ArrayList<Pokemon> pokemons = new ArrayList<>();
-
         try {
             nextUrl = !response.isNull("next") ? response.getString("next") : null;
 
@@ -102,7 +101,6 @@ public class ListFragment extends Fragment {
         } catch (JSONException e) {
             Log.e("ListFragment", e.getMessage(), e);
         }
-
         return pokemons;
     }
 

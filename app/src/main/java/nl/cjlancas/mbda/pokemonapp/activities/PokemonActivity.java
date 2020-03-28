@@ -113,7 +113,6 @@ public class PokemonActivity extends AppCompatActivity {
                 Type type = new Type(slot, typeName);
                 types.add(type);
             }
-
             return types;
         } catch (JSONException e) {
             Log.e("PokemonActivity", e.getMessage(), e);

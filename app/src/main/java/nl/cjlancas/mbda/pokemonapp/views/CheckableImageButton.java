@@ -51,13 +51,11 @@ public class CheckableImageButton extends androidx.appcompat.widget.AppCompatIma
 
     @Override
     public int[] onCreateDrawableState(int extraSpace) {
-        final int[] drawableState = super.onCreateDrawableState(extraSpace + 1);
-
+        final int[] state = super.onCreateDrawableState(extraSpace + 1);
         if (isChecked()) {
-            mergeDrawableStates(drawableState, CHECKED_STATE);
+            mergeDrawableStates(state, CHECKED_STATE);
         }
-
-        return drawableState;
+        return state;
     }
 
     @Override

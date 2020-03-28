@@ -40,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(this::onNavigationItemSelected);
         bottomNavigationView.setOnNavigationItemReselectedListener(this::onNavigationItemReselected);
 
-        if(savedInstanceState == null) replaceFragment(new ListFragment());
+        if(savedInstanceState == null){
+            replaceFragment(new ListFragment());
+        }
     }
 
     private void replaceFragment(Fragment fragment) {
@@ -59,24 +61,25 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //navigeren met tabs.
+    //navigeren tussen tabs.
     private boolean onNavigationItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.list_menu_item:
-                replaceFragment(new ListFragment());
-                setTitle(R.string.app_name);
 
-                return true;
-            case R.id.favorites_menu_item:
-                replaceFragment(new FavoritesFragment());
-                setTitle(R.string.favorites);
+        int itemId = item.getItemId();
 
-                return true;
-            default:
-                return false;
+        if (itemId == R.id.list_menu_item){
+            replaceFragment(new ListFragment());
+            setTitle(R.string.list);
+            return true;
+        } else if (itemId == R.id.favorites_menu_item){
+            replaceFragment(new FavoritesFragment());
+            setTitle(R.string.favorites);
+            return true;
+        } else {
+            return false;
         }
     }
 
     private void onNavigationItemReselected(MenuItem item) {
+
     }
 }

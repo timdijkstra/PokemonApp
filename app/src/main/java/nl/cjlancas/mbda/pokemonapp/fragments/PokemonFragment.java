@@ -165,10 +165,7 @@ public class PokemonFragment extends Fragment {
     }
 
     private void requestWriteExternalStoragePermission() {
-        /*
-         * If the user has declined permission before but asks for access again,
-         * we explain why we are asking for this permission.
-         */
+       //after declining first permission request, display explanation.
         if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
             new AlertDialog.Builder(activity)
                     .setTitle("Waarom vragen wij toegang?")
@@ -203,10 +200,10 @@ public class PokemonFragment extends Fragment {
                 frontImageView.setImageBitmap(selectedImage);
             } catch (IOException e) {
                 Log.e("PokemonFragment", e.getMessage(), e);
-                Toast.makeText(activity, "Iets ging fout, probeer het aub nogmaals", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "Something went wrong with displaying an image", Toast.LENGTH_SHORT).show();
             }
         }else {
-            Toast.makeText(activity, "Je hebt geen afbeelding geselecteerd. Probeer het aub nogmaals",Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "No image was selected, please try again.",Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -38,6 +38,7 @@ public class PokemonActivity extends AppCompatActivity {
 
         setupActionBar();
 
+        //TODO: wat is dit?
         url = getIntent().getStringExtra(ExtraNameConstants.URL);
         JsonObjectRequest request = new JsonObjectRequest(
                 url,

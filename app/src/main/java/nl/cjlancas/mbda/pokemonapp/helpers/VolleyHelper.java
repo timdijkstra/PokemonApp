@@ -12,8 +12,8 @@ public class VolleyHelper {
 
     private RequestQueue requestQueue;
 
-    private VolleyHelper(Context ctx) {
-        requestQueue = Volley.newRequestQueue(ctx);
+    private VolleyHelper(Context context) {
+        requestQueue = Volley.newRequestQueue(context);
     }
 
     public static synchronized VolleyHelper getInstance(Context context) {

@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -22,13 +21,11 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Comparator;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
-
 import nl.cjlancas.mbda.pokemonapp.R;
 import nl.cjlancas.mbda.pokemonapp.helpers.ImageHelper;
 import nl.cjlancas.mbda.pokemonapp.helpers.StringHelper;
@@ -60,7 +57,9 @@ public class PokemonFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
         Bundle arguments = getArguments();
+
         if (arguments == null){
             return;
         }
@@ -82,19 +81,24 @@ public class PokemonFragment extends Fragment {
             return;
         }
 
-        populateViews();
+        loadViewData();
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
         if (requestCode == STORAGE_PERMISSION_CODE) {
+
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(activity, "Access granted", Toast.LENGTH_SHORT).show();
             }
+
         }
+
     }
 
-    private void populateViews() {
+    private void loadViewData() {
+
         try {
 
             String name = StringHelper.capitalize(pokemon.getName());
@@ -103,7 +107,7 @@ public class PokemonFragment extends Fragment {
             String id = "#" + pokemon.getId();
             idTextView.setText(id);
 
-            // formatting (types next or under each other)
+
             //could not capitalize first letter without Stringhelper.
             String typesString = pokemon.getTypes()
                     .stream()
@@ -118,7 +122,7 @@ public class PokemonFragment extends Fragment {
                     .get();
             frontImageView.setImageBitmap(bitmap);
 
-            // quickfix: Showing saveImage
+            //disabling and enabling save button.
             if (bitmap != null) {
                 saveImageButton.setEnabled(true);
             } else {
@@ -126,10 +130,12 @@ public class PokemonFragment extends Fragment {
             }
 
             saveImageButton.setOnClickListener(v -> {
+
                 if (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+
                     imageHelper.saveImageToFile(frontImageView, getActivity());
                 } else {
-                    requestWriteExternalStoragePermission();
+                    grantAccesToStorageRequest();
                 }
             });
 
@@ -160,7 +166,7 @@ public class PokemonFragment extends Fragment {
         }
     }
 
-    private void requestWriteExternalStoragePermission() {
+    private void grantAccesToStorageRequest() {
        //after declining first permission request, display explanation.
         if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
             new AlertDialog.Builder(activity)
@@ -185,18 +191,22 @@ public class PokemonFragment extends Fragment {
 
     @Override
     public void onActivityResult(int reqCode, int resultCode, Intent data) {
+
         super.onActivityResult(reqCode, resultCode, data);
         if (resultCode == RESULT_OK) {
+
             Uri imageUri = data.getData();
             try (InputStream imageStream = activity.getContentResolver().openInputStream(imageUri)) {
+
                 Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                 frontImageView.setImageBitmap(selectedImage);
             } catch (IOException e) {
+
                 Log.e("PokemonFragment", e.getMessage(), e);
                 Toast.makeText(activity, "Image could not be displayed.", Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(activity, "Select an image.",Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Select an image.", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -206,12 +216,17 @@ public class PokemonFragment extends Fragment {
             String apiRequestUrl = urls[0];
 
             try {
-                //Make an API request for the image
+                //API request for image.
+
                 InputStream in = new java.net.URL(apiRequestUrl).openStream();
+
                 final Bitmap bitmap = BitmapFactory.decodeStream(in);
+
                 return bitmap;
             } catch (Exception e) {
+
                 Log.e("PokemonFragment", e.getMessage(), e);
+
                 return null;
             }
         }

@@ -8,12 +8,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public abstract class EndlessScrollListener extends RecyclerView.OnScrollListener {
 
-    private static final int MARGIN = 4;
+    private static final int MARGIN = 5;
 
     private boolean loading = false;
 
     @Override
     public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+
         LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
         RecyclerView.Adapter adapter = recyclerView.getAdapter();
 

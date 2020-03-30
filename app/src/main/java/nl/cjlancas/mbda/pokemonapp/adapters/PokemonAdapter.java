@@ -5,13 +5,9 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.Collections;
 import java.util.List;
-
 import nl.cjlancas.mbda.pokemonapp.R;
 import nl.cjlancas.mbda.pokemonapp.activities.PokemonActivity;
 import nl.cjlancas.mbda.pokemonapp.models.Pokemon;
@@ -51,15 +47,6 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonViewHolder> {
     @Override
     public int getItemCount() {
         return pokemons.size();
-    }
-
-    public void clearData() {
-        pokemons.clear();
-        notifyDataSetChanged();
-    }
-
-    public void appendData(Pokemon pokemon) {
-        appendData(Collections.singletonList(pokemon));
     }
 
     public void appendData(List<Pokemon> pokemons) {

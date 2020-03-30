@@ -2,21 +2,16 @@ package nl.cjlancas.mbda.pokemonapp.activities;
 
 import android.os.Bundle;
 import android.util.Log;
-
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import com.android.volley.toolbox.JsonObjectRequest;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import nl.cjlancas.mbda.pokemonapp.R;
 import nl.cjlancas.mbda.pokemonapp.fragments.PokemonFragment;
 import nl.cjlancas.mbda.pokemonapp.helpers.VolleyHelper;
@@ -35,7 +30,7 @@ public class PokemonActivity extends AppCompatActivity {
 
         setupActionBar();
 
-        //TODO: wat is dit?
+        //get information from intent with the url key
         url = getIntent().getStringExtra("url");
         JsonObjectRequest request = new JsonObjectRequest(
                 url,
@@ -74,10 +69,13 @@ public class PokemonActivity extends AppCompatActivity {
     }
 
     private void showPokemonFragment(Pokemon pokemon) {
+
         Bundle arguments = new Bundle();
+
         arguments.putParcelable("pokemon", pokemon);
 
         PokemonFragment pokemonFragment = new PokemonFragment();
+
         pokemonFragment.setArguments(arguments);
 
         getSupportFragmentManager()
@@ -87,11 +85,13 @@ public class PokemonActivity extends AppCompatActivity {
     }
 
     private List<Type> getPokemonTypes(JSONObject pokemonObject) {
+
         try {
             ArrayList<Type> types = new ArrayList<>();
             JSONArray typesArray = pokemonObject.getJSONArray("types");
 
             for (int i = 0; i < typesArray.length(); i++) {
+
                 JSONObject arrayObject = typesArray.getJSONObject(i);
                 int slot = arrayObject.getInt("slot");
 
@@ -101,7 +101,9 @@ public class PokemonActivity extends AppCompatActivity {
                 Type type = new Type(slot, typeName);
                 types.add(type);
             }
+
             return types;
+
         } catch (JSONException e) {
             Log.e("PokemonActivity", e.getMessage(), e);
             return Collections.emptyList();
@@ -137,6 +139,7 @@ public class PokemonActivity extends AppCompatActivity {
 
             return stats;
         } catch (JSONException e) {
+
             Log.e("PokemonActivity", e.getMessage(), e);
             return Collections.emptyList();
         }

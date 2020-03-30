@@ -4,24 +4,19 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.android.volley.Response;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import nl.cjlancas.mbda.pokemonapp.R;
 import nl.cjlancas.mbda.pokemonapp.adapters.PokemonAdapter;
 import nl.cjlancas.mbda.pokemonapp.helpers.VolleyHelper;
@@ -38,9 +33,8 @@ public class ListFragment extends Fragment {
     private String nextUrl;
 
     public ListFragment() {
+
         super(R.layout.fragment_list);
-        //TODO: wat doet dit?
-        VolleyLog.DEBUG = true;
     }
 
     @Override

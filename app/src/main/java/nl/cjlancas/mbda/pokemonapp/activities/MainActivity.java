@@ -34,8 +34,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar actionBar = findViewById(R.id.action_bar);
         setSupportActionBar(actionBar);
 
-        //TODO: waarom wordt de bottomnav hier geinitialiseerd?
-
         if(savedInstanceState == null){
             replaceFragment(new ListFragment());
         }

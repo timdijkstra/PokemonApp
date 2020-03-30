@@ -2,9 +2,7 @@ package nl.cjlancas.mbda.pokemonapp.activities;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -48,15 +46,6 @@ public class PokemonActivity extends AppCompatActivity {
         VolleyHelper.getInstance(this).addToRequestQueue(request);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            super.onBackPressed();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     private void setupActionBar() {
         Toolbar toolbar = findViewById(R.id.action_bar);
@@ -72,7 +61,7 @@ public class PokemonActivity extends AppCompatActivity {
         try {
             String name = response.getString("name");
             int id = response.getInt("id");
-            List<Type> types = getTypes(response);
+            List<Type> types = getPokemonTypes(response);
             String imageUrl = getImageUrl(response);
             List<Stat> stats = getStats(response);
 
@@ -97,7 +86,7 @@ public class PokemonActivity extends AppCompatActivity {
                 .commit();
     }
 
-    private List<Type> getTypes(JSONObject pokemonObject) {
+    private List<Type> getPokemonTypes(JSONObject pokemonObject) {
         try {
             ArrayList<Type> types = new ArrayList<>();
             JSONArray typesArray = pokemonObject.getJSONArray("types");

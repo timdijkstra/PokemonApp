@@ -20,7 +20,6 @@ import java.util.Collections;
 import java.util.List;
 
 import nl.cjlancas.mbda.pokemonapp.R;
-import nl.cjlancas.mbda.pokemonapp.constants.ExtraNameConstants;
 import nl.cjlancas.mbda.pokemonapp.fragments.PokemonFragment;
 import nl.cjlancas.mbda.pokemonapp.helpers.VolleyHelper;
 import nl.cjlancas.mbda.pokemonapp.models.Pokemon;
@@ -39,7 +38,7 @@ public class PokemonActivity extends AppCompatActivity {
         setupActionBar();
 
         //TODO: wat is dit?
-        url = getIntent().getStringExtra(ExtraNameConstants.URL);
+        url = getIntent().getStringExtra("url");
         JsonObjectRequest request = new JsonObjectRequest(
                 url,
                 null,

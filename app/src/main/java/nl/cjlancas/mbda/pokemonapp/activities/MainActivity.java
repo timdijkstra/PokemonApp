@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import nl.cjlancas.mbda.pokemonapp.R;
-import nl.cjlancas.mbda.pokemonapp.fragments.FavoritesFragment;
 import nl.cjlancas.mbda.pokemonapp.fragments.ListFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,9 +35,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(actionBar);
 
         //TODO: waarom wordt de bottomnav hier geinitialiseerd?
-        BottomNavigationView bottomNavigationView = findViewById(R.id.main_navigation_view);
-        bottomNavigationView.setOnNavigationItemSelectedListener(this::onNavigationItemSelected);
-        bottomNavigationView.setOnNavigationItemReselectedListener(this::onNavigationItemReselected);
 
         if(savedInstanceState == null){
             replaceFragment(new ListFragment());
@@ -61,25 +57,4 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //navigeren tussen tabs.
-    private boolean onNavigationItemSelected(MenuItem item) {
-
-        int itemId = item.getItemId();
-
-        if (itemId == R.id.list_menu_item){
-            replaceFragment(new ListFragment());
-            setTitle(R.string.list);
-            return true;
-        } else if (itemId == R.id.favorites_menu_item){
-            replaceFragment(new FavoritesFragment());
-            setTitle(R.string.favorites);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private void onNavigationItemReselected(MenuItem item) {
-
-    }
 }

@@ -6,25 +6,17 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <nl.cjlancas.mbda.pokemonapp.views.CheckableImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/pokemon_favorite_checkable_image_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/pokemon_types_text_view"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/button_star" />
-
     <TextView
         android:id="@+id/pokemon_name_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="84dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toStartOf="@+id/pokemon_id_text_view"
+        app:layout_constraintHorizontal_bias="0.968"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toEndOf="@+id/pokemon_favorite_checkable_image_button"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Bulbasaur" />
 
@@ -34,7 +26,6 @@
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/pokemon_name_text_view"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="#123" />
 
@@ -51,21 +42,23 @@
         android:id="@+id/pokemon_save_image_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="196dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/save_image"
         app:layout_constraintBottom_toTopOf="@+id/pokemon_share_stats_button"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.161"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/pokemon_change_image_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="28dp"
         android:text="@string/change_pokemon_image"
         app:layout_constraintBottom_toTopOf="@+id/pokemon_stats_title_text_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.84"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
@@ -94,6 +87,7 @@
         android:id="@+id/pokemon_share_stats_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
         android:text="@string/share"
         app:layout_constraintBaseline_toBaselineOf="@+id/pokemon_stats_title_text_view"
         app:layout_constraintEnd_toEndOf="parent" />
